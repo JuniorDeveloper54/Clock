@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock</title>
+    <!-- <title>Clock</title> -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
+
+    <!-- live time on title tab -->
+
+    <script language="javascript" type="text/javascript">
+        function clock() {
+            var date = new Date()
+            var hour = date.getHours()
+            var minute = date.getMinutes()
+            var second = date.getSeconds()
+
+            if (hour > 12) { hour = hour - 12 }
+            if (minute < 10) { minute = "0" + minute }
+            if (second < 10) { second = "0" + second }
+            document.title = hour + ":" + minute + ":" + second
+            setTimeout(clock, 1000)
+        }
+    </script>
+
 </head>
 
-<body>
+<body onLoad="clock()">
+    
     <div class="container">
         <div class="clock">
 
@@ -44,6 +62,7 @@
         </div>
 
     </div>
+
 
 
 
@@ -98,7 +117,7 @@
 
         })
     </script>
-    
+
 </body>
 
 </html>
